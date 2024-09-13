@@ -10,10 +10,10 @@ function Footer() {
     <h3 className=' text-center font-bold p-4'>Sosyal Medya Hesaplarınız ile paylaşın</h3>
   <div className="flex   justify-center items-center space-x-6">
  
-   <button> <FaInstagram  size={30}/></button>
-    <button> <BsTwitterX  size={30}/></button>
-    <button> <FaYoutube  size={30}/></button>
-    <button><FaFacebook  size={30}/></button>
+    <Link to={"https://www.instagram.com/accounts/login/"} className='hover:text-white '> <FaInstagram  size={30}/></Link>
+    <Link to={"https://x.com/?lang=tr"} className='hover:text-white '> <BsTwitterX  size={30}/></Link>
+    <Link to={"https://www.youtube.com/"} className='hover:text-white '> <FaYoutube  size={30}/></Link>
+    <Link to={"https://www.facebook.com/?locale=tr_TR"} className='hover:text-white '><FaFacebook  size={30}/></Link>
 
   
     </div>

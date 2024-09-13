@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 function favoriteReducer(state, action) {
   switch (action.type) {
     case "ADD_FAVORITE": //Favorilere ekleme
@@ -34,18 +34,20 @@ return {...state, basket: state.basket.map(item=>item.id===action.product.id ? {
           ...state,
             basket :state.basket.map(item=>item.id===action.productid ? {...item,quantity:action.quantity} :item )
         }
+        case "QUERY":
+          return { ...state,query: action.payload}
     default:
       return state;
   }
 }
 const initialState = {
+  query:"",
   favorites: localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [],
   basket: localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [],
 };
 
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(favoriteReducer, initialState);
-
   const AddFavorite = (product) => {
     if (state.favorites.find((item) => item.id === product.id)) {
       //ürün favorilerde varmı varsa sil
@@ -72,7 +74,13 @@ dispatch({type:"UPDATE_QUANTİTY",productid:id,quantity:parseInt(newquantity)})
     //Ürün Favorilerde varmı kontrol et
     return state.favorites.some((fav) => fav.id === product.id);
   };
- 
+
+
+
+  const HandleSearch=(e)=>{
+    dispatch({type:"QUERY",payload:e.target.value})
+  }
+
   useEffect(()=>{
     localStorage.setItem("favorites", JSON.stringify(state.favorites));
     localStorage.setItem("basket", JSON.stringify(state.basket));
@@ -86,7 +94,9 @@ dispatch({type:"UPDATE_QUANTİTY",productid:id,quantity:parseInt(newquantity)})
     isFavorite,
     addBasket,
     Remove_Basket,
-    updateQuantity
+    updateQuantity,
+    HandleSearch,
+    query:state.query
   };
   return (
     <Productcontext.Provider value={values}>{children}</Productcontext.Provider>
