@@ -1,53 +1,8 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-function favoriteReducer(state, action) {
-  switch (action.type) {
-    case "ADD_FAVORITE": //Favorilere ekleme
-      return { ...state, favorites: [...state.favorites, action.product] };
-    case "REMOTE_FAVORITE": //Favorilerden silme
-      return {
-        ...state,
-        favorites: state.favorites.filter(
-          (item) => item.id !== action.product.id
-        ),
-      };
-    case "ADD_BASKET": //Sepete Ekleme
-      const existingProduct =state.basket.find(item=>item.id===action.product.id)
-      if(existingProduct) {
-return {...state, basket: state.basket.map(item=>item.id===action.product.id ? {...item ,quantity:item.quantity + 1} :item       ),}
-
-          }
-          else {
- return { 
-  ...state, basket: [...state.basket, {...action.product,quantity: 1 }]
-      }
-
-          }
-     
-    case "REMOVE_BASKET":  //sepetten silme
-      return {
-        ...state,
-        basket: state.basket.filter((item) => item.id !== action.product.id),
-      };
-
-      case "UPDATE_QUANTİTY" :   //adet bilgisini güncelleme
-        return {
-          ...state,
-            basket :state.basket.map(item=>item.id===action.productid ? {...item,quantity:action.quantity} :item )
-        }
-        case "QUERY":
-          return { ...state,query: action.payload}
-    default:
-      return state;
-  }
-}
-const initialState = {
-  query:"",
-  favorites: localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [],
-  basket: localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [],
-};
+import { createContext, useEffect, useReducer } from "react";
+import {ProductReducer,initialState} from "../Api/Reducer";
 
 export const ProductProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(favoriteReducer, initialState);
+  const [state, dispatch] = useReducer(ProductReducer, initialState);
   const AddFavorite = (product) => {
     if (state.favorites.find((item) => item.id === product.id)) {
       //ürün favorilerde varmı varsa sil
@@ -57,30 +12,40 @@ export const ProductProvider = ({ children }) => {
       dispatch({ type: "ADD_FAVORITE", product });
     }
   };
-
-  const addBasket = (product) => {    //sepete ekle
-      dispatch({ type: "ADD_BASKET", product });
-   };
+  const addBasket = (product, quantity) => {
+    dispatch({ type: "ADD_BASKET", product: {...product, quantity } });
+  };
+  
 
   const Remove_Basket = (product) => {
     //sepetten sil
     dispatch({ type: "REMOVE_BASKET", product });
   };
 
-  const updateQuantity=(id,newquantity)=>{ //Adet bilgisini al güncelle
-dispatch({type:"UPDATE_QUANTİTY",productid:id,quantity:parseInt(newquantity)})
-  }
+  const updateQuantity = (product, newQuantity) => { //Adet bilgisi güncelleme
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      product, 
+      quantity: parseInt(newQuantity)
+    });
+  };
+
+
   const isFavorite = (product) => {
     //Ürün Favorilerde varmı kontrol et
     return state.favorites.some((fav) => fav.id === product.id);
   };
 
 
-
   const HandleSearch=(e)=>{
+    //ürün filtreleme
     dispatch({type:"QUERY",payload:e.target.value})
   }
 
+  const HandleSelect=(e)=>{
+    //Kategori filtreleme
+    dispatch({type:"CATEGORY",payload:e.target.value})
+  }
   useEffect(()=>{
     localStorage.setItem("favorites", JSON.stringify(state.favorites));
     localStorage.setItem("basket", JSON.stringify(state.basket));
@@ -96,8 +61,13 @@ dispatch({type:"UPDATE_QUANTİTY",productid:id,quantity:parseInt(newquantity)})
     Remove_Basket,
     updateQuantity,
     HandleSearch,
-    query:state.query
+    query:state.query,
+    HandleSelect,
+    categorys:state.categorys,   
+ 
   };
+
+
   return (
     <Productcontext.Provider value={values}>{children}</Productcontext.Provider>
   );
