@@ -25,7 +25,7 @@ function UrunDetay() {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-center bg-gray-500">
       {/*     <div className='m-2'><h2 className='text-2xl font-bold text-white'>Ürün Detay</h2></div>  */}
-      <div className="relative w-[720px] h-auto border-solid border-2 rounded-lg m-5 bg-white ">
+      <div className="relative w-fullsm:w-[500px] h-auto border-solid border-2 rounded-lg m-5 bg-white ">
     
      <div className="absolute "><button className="hover:bg-gray-400 rounded-full" onClick={goBack}> 
      <IoArrowBackCircleOutline size={30} />

@@ -19,7 +19,7 @@ const navigateProduct=(id)=>{
           >
             <img className="w-[100px]" src={fav.image} alt={fav.title} />
 
-            <div className="absolute right-2">
+            <div className="absolute right-2 overflow-hidden">
               <button
                 className={`p-2 rounded-full ${isFavorite(fav) ? 'bg-red-500' : 'bg-white'}`}
                 onClick={() => AddFavorite(fav)}
@@ -48,7 +48,7 @@ const navigateProduct=(id)=>{
               </p>
             </div>
 
-            <div className="flex flex-col  ml-auto pr-8 justify-center items-center text-center sm-flex-row">
+            <div className="flex flex-col  ml-auto sm:pr-8 justify-center items-center text-center sm-flex-row">
               <button
                 className="bg-red-400 p-2 m-3  border-solid border-2 rounded-md active:bg-red-500"
                 onClick={() => navigateProduct(fav.id)}
