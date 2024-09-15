@@ -11,27 +11,27 @@ function Sepet() {
     0
   );
   return (
-    <div className="w-full h-screen flex flex-col p-1 ">
+    <div className="w-full h-screen flex flex-col p-1 overflow-auto">
            {/* İndirim kodu divi */}
-           <div className="flex justify-between">
-        <div className="mx-5 border-collapse border p-2 w-auto sm:h-min ">
+           <div className="flex lg:justify-between">
+        <div className="mx-3 border-collapse border p-2 sm:h-[100px] sm:w-auto">
           
-          <label className="text-bold text-xl">indirim kodu </label>
-          <input className="border-collapse border"></input>
+          <label className="text-xl font-semibold">indirim kodu </label>
+          <input className="border-collapse border" placeholder="İndirim kodunu girin"></input>
           <button className="mx-2 border-collapse border px-1 bg-blue-500 hover:bg-green-200 ">
             Uygula
           </button>
         </div>
-        <div className=" w-[300px] h-[100px] my-5 border border-collapse rounded-sm bg-orange-400 ">
-              <div className="flex justify-between px-2 py-1">
+        <div className=" w-[300px] h-auto my-5 border border-collapse rounded-sm bg-orange-400 ">
+              <div className="flex justify-between px-2 py-1 ">
                 <p>Ara Toplam</p> <p className="font-semibold"> {total} TL</p>
               </div>
               <hr />
-              <div className="flex justify-between px-2 py-1">
-                <p>Kargo</p> <p className="font-semibold"> Ücretsiz</p>
+              <div className="flex justify-between px-2 py-1 ">
+                <p>Kargo</p> <p className="font-semibold">Ücretsiz</p>
               </div>
               <hr />
-              <div className="flex justify-between px-2 py-1">
+              <div className="flex justify-between px-2 py-1 ">
                 <p>Toplam tutar</p> <p className="font-semibold"> {total} TL</p>
               </div>
               <hr />
