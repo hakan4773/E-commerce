@@ -27,10 +27,10 @@ function UrunKatalog() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading products</div>;
   return (
-    <div className="flex flex-col sm:space-y-6 space-y-4">
+    <div className="flex flex-col sm:space-y-6 space-y-4 ">
      
   
-     <div className="relative flex flex-col sm:flex-row justify-center items-center p-2 bg-slate-400 rounded-md space-y-4 sm:space-y-0">
+     <div className="relative w-screen flex flex-col sm:flex-row justify-center items-center p-2 bg-slate-400  space-y-4 sm:space-y-0">
      <select onChange={HandleSelect} value={categorys} className="m-4 border-2 border-collapse rounded-sm w-48">
      <option value="All Categories">All Categories</option>
    
@@ -56,7 +56,7 @@ function UrunKatalog() {
   
 </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
         {filteredProducts.map((product) => 
         {
           const productInBasket = basket.find(item => item.id === product.id);
@@ -72,12 +72,12 @@ function UrunKatalog() {
               alt={product.title}
             />
 
-            <div className="absolute top-2 right-2">
+            <div className="absolute right-2">
             <button
                 className={`p-2 rounded-full ${isFavorite(product) ? 'bg-red-500' : 'bg-white'}`}
                 onClick={() => AddFavorite(product)}
                 >
-                  {isFavorite(product) ? <MdFavorite size={20} /> : <MdFavoriteBorder size={20} />}
+                  {isFavorite(product) ? <MdFavorite size={18} /> : <MdFavoriteBorder size={20} />}
 
                   </button>
             </div>
@@ -117,9 +117,9 @@ function UrunKatalog() {
            
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4 sm:mt-0">
+            <div className="flex flex-col sm:flex-row pr-8  justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4 sm:mt-0">
               <button
-                className="bg-red-400 p-2 m-3 sm:w-auto   border-solid  w-full  border-1 rounded-md hover:bg-red-300"
+                className="bg-red-400 p-2 m-3 sm:w-auto border-solid  w-full  border-1 rounded-md hover:bg-red-300"
                 onClick={() => navigateProduct(product.id)}
               >
                 Ürün Detay{" "}

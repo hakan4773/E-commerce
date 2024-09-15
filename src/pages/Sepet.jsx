@@ -11,18 +11,32 @@ function Sepet() {
     0
   );
   return (
-    <div className="w-full h-screen flex p-2 ">
-      <div>
-        <div className="mx-5 border-collapse border w-[400px] p-2">
+    <div className="w-full h-screen flex flex-col p-1 ">
+           {/* İndirim kodu divi */}
+           <div className="flex justify-between">
+        <div className="mx-5 border-collapse border p-2 w-auto sm:h-min ">
+          
           <label className="text-bold text-xl">indirim kodu </label>
           <input className="border-collapse border"></input>
-          <button className="mx-2 border-collapse border px-1 bg-blue-500 hover:bg-green-200">
+          <button className="mx-2 border-collapse border px-1 bg-blue-500 hover:bg-green-200 ">
             Uygula
           </button>
         </div>
-
-        <div className="flex">
-          <table className="m-5  border-collapse border border-gray-400 w-[1000px]">
+        <div className=" w-[300px] h-[100px] my-5 border border-collapse rounded-sm bg-orange-400 ">
+              <div className="flex justify-between px-2 py-1">
+                <p>Ara Toplam</p> <p className="font-semibold"> {total} TL</p>
+              </div>
+              <hr />
+              <div className="flex justify-between px-2 py-1">
+                <p>Kargo</p> <p className="font-semibold"> Ücretsiz</p>
+              </div>
+              <hr />
+              <div className="flex justify-between px-2 py-1">
+                <p>Toplam tutar</p> <p className="font-semibold"> {total} TL</p>
+              </div>
+              <hr />
+            </div></div>
+          <table className="m-2 border-collapse border border-gray-400  sm:w-auto">
             <thead className="bg-slate-300">
               <tr>
                 <th className="border border-gray-300 p-2">Sil</th>
@@ -56,7 +70,7 @@ function Sepet() {
                     </svg>
                   </td>
                   <td className="border border-gray-300 p-2">
-                    <img className="w-[100px]" src={product.image}></img>
+                    <img className="w-[80px]" src={product.image}></img>
                   </td>
                   <td className="border border-gray-300 p-2">
                     {product.title}
@@ -83,30 +97,17 @@ function Sepet() {
               </tbody>
             ))}
           </table>
-          <div>
-            <div className="w-[300px] h-[100px] my-5 border border-collapse rounded-sm bg-orange-400">
-              <div className="flex justify-between px-2 py-1">
-                <p>Ara Toplam</p> <p className="font-semibold"> {total} TL</p>
-              </div>
-              <hr />
-              <div className="flex justify-between px-2 py-1">
-                <p>Kargo</p> <p className="font-semibold"> Ücretsiz</p>
-              </div>
-              <hr />
-              <div className="flex justify-between px-2 py-1">
-                <p>Toplam tutar</p> <p className="font-semibold"> {total} TL</p>
-              </div>
-              <hr />
-            </div>
-            <div className="flex text-center justify-center">
+
+            {/* Ödeme kısmı */}
+          
+
+            <div className="flex text-center justify-center "> {/* ödeme butonu */}
               <button className="border border-solid rounded-md p-2 text-white font-semibold bg-lime-500 hover:bg-lime-300">
-                Ödeme Yap
+                Ödeme işlemine geç
               </button>
-            </div>
+
           </div>
-        </div>
       </div>
-    </div>
   );
 }
 

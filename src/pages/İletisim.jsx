@@ -30,7 +30,7 @@ function İletisim() {
         <h2 className="text-2xl font-bold">Contact Form</h2>
       </div>
 
-      <div className="w-[700px] h-[500px] bg-blue-400 p-5">
+      <div className="sm:w-auto h-[500px] bg-blue-400 p-5">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <div className="flex flex-col">
             <label>FirstName *</label>

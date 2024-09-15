@@ -5,9 +5,9 @@ import { Productcontext } from "../context/ProductContext";
 function Header() {
 const {basket}=useContext(Productcontext)
   return (
-    <div className="bg-pink-800 w-full h-[50px] flex items-center justify-center text-center">
+    <div className="bg-pink-800 w-screen  h-[50px] flex items-center justify-between px-4">
      <div className="flex-grow flex justify-center font-medium text-zinc-50">
-      <ul className="flex  space-x-8 ">
+      <ul className="flex  space-x-6 ">
         <li >
           <Link className="no-underline  hover:text-gray-400" to="/">
             Anasayfa
