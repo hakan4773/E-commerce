@@ -46,7 +46,7 @@ function UrunKatalog() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredProducts.map((product) => {
           const productInBasket = basket.find(item => item.id === product.id);
 
@@ -74,16 +74,16 @@ function UrunKatalog() {
 
                 <div className="relative flex-grow">
                  
-                  <p className="font-semibold sm:mr-4">
+                  <p className=" sm:mr-4">
                     <span className="font-semibold text-red-500">Ürün Adı:</span> {product.title}
                   </p>
-                  <p className="font-semibold sm:mr-4">
-                    <span className="text-red-500">Ürün Fiyatı:</span> {product.price} TL
+                  <p className=" sm:mr-4">
+                    <span className="font-semibold text-red-500">Ürün Fiyatı:</span> {product.price} TL
                   </p>
-                  <p className="font-semibold sm:mr-4">
-                    <span className="text-red-500">Kategori:</span> {product.category}
+                  <p className=" sm:mr-4">
+                    <span className="font-semibold text-red-500">Kategori:</span> {product.category}
                   </p>
-                  <p className="font-semibold sm:mr-4">
+                  <p className="sm:mr-4">
                     <span className="font-semibold text-red-500">Adet:</span>
                     <input
                       type="number"
@@ -94,15 +94,15 @@ function UrunKatalog() {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4 sm:mt-0">
+                <div className="flex flex-col text-white sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4 sm:mt-0">
                   <button
-                    className="bg-red-400 p-2 m-3 sm:w-auto border-solid w-full border-1 rounded-md hover:bg-red-300"
+                    className="bg-red-500 p-2 m-3 sm:w-auto border-solid w-full border-1 rounded-md hover:bg-red-300"
                     onClick={() => navigateProduct(product.id)}
                   >
                     Ürün Detay
                   </button>
                   <button
-                    className="bg-green-400 p-2 m-3 sm:w-auto w-full border-solid border-1 rounded-md hover:bg-green-300"
+                    className="bg-green-500 p-2 m-3 sm:w-auto w-full border-solid border-1 rounded-md hover:bg-green-300"
                     onClick={() => addBasket(product, product.quantity)}
                   >
                     Sepete Ekle

@@ -24,7 +24,6 @@ function UrunDetay() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-center bg-gray-500">
-      {/*     <div className='m-2'><h2 className='text-2xl font-bold text-white'>Ürün Detay</h2></div>  */}
       <div className="relative w-fullsm:w-[500px] h-auto border-solid border-2 rounded-lg m-5 bg-white ">
     
      <div className="absolute "><button className="hover:bg-gray-400 rounded-full" onClick={goBack}> 
@@ -75,12 +74,14 @@ function UrunDetay() {
                
                 <input
                   type="number"
+                  min={1}
                   value={productInBasket ? productInBasket.quantity : 1} // Eğer ürün sepette değilse 1 değeri gösterilir
                   onChange={(e) =>       
                   updateQuantity(data,e.target.value)}      
                   className="w-12 h-[30px] p-1 text-center border border-gray-300"
                  
                 />
+
               </p>
              
           <hr className="text-black text-bold"></hr>
