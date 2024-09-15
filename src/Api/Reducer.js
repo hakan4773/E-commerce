@@ -22,7 +22,7 @@ export const initialState = {
             )
           };
         } else {
-          return {
+          return {//şuraya bak
             ...state,
             basket: [...state.basket, { ...action.product,  quantity: action.product.quantity || 1 }]
           };
