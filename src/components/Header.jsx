@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { Productcontext } from "../context/ProductContext";
+import { FiLogIn } from "react-icons/fi";
+import { IoPersonAddOutline } from "react-icons/io5";
+
 function Header() {
 const {basket}=useContext(Productcontext)
   return (
-    <div className="bg-pink-800 w-full h-[50px] flex items-center justify-between px-4">
+    <div className="bg-sky-900 w-screen h-[50px] flex items-center justify-between px-4">
      <div className="flex-grow flex justify-center font-medium text-zinc-50">
       <ul className="flex  space-x-4 ">
         <li >
@@ -31,16 +34,31 @@ const {basket}=useContext(Productcontext)
        
       </ul>
 </div>
-      <div className="flex items-center text-3xl text-white">
+      <div className=" flex  text-white space-x-5">
        
-      <div className="text-xl text-white flex text-center justify-center">{basket.length}</div> 
-          <Link className="no-underline  hover:text-gray-400" to="/Sepet">
+      <div className="text-sm text-white ">{basket.length}
+
+          <Link className="no-underline  hover:text-gray-400 " to="/Sepet">
           
-           <FiShoppingCart  />
+           <FiShoppingCart size={20} />
            
           </Link>
+          </div> 
+
+        <div className="text-white p-2 hover:text-gray-400">
+        <a className="no-underline  hover:text-gray-400 " href="/Login">
+        <FiLogIn className="border-1 text-blue-600 rounded-full bg-slate-50 p-1 hover:text-gray-400 " size={35}/>
+        </a>
         </div>
-    </div>
+        <div className="text-white py-2 " >
+        <a className="no-underline  hover:text-gray-400 " href="/Register">
+        <IoPersonAddOutline className="border-1 text-blue-600 rounded-full  bg-slate-50 p-1  hover:text-gray-400" size={35}/>
+        </a>
+
+        </div>
+        </div>
+       
+        </div>
   );
 }
 

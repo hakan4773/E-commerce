@@ -8,7 +8,8 @@ import Header from './components/Header'
 import UrunDetay from './pages/UrunDetay'
 import './index.css'
 import { ProductProvider } from "./context/ProductContext"
-
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 function App() {
   return (
 <ProductProvider>
@@ -17,13 +18,13 @@ function App() {
 
     <Routes>
     <Route path="/" element={<Home />} />
-
     <Route path="/UrunKatalog" element={<UrunKatalog />} />
     <Route path="/UrunDetay/:id" element={<UrunDetay />} />
-
     <Route path="/Favoriler" element={<Favoriler />} />
     <Route path="/İletisim" element={<İletisim />} />
     <Route path="/Sepet" element={<Sepet />} />
+    <Route path="/Login" element={<Login />} />
+    <Route path="/Register" element={<Register />} />
 
 
     </Routes>
