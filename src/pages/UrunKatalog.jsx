@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useProducts } from "../Api/Api";
 import { Productcontext } from "../context/ProductContext";
 import { FaSearch } from 'react-icons/fa';
+import { IoPersonAddOutline } from "react-icons/io5";
 
 function UrunKatalog() {
   const { AddFavorite, isFavorite, addBasket, HandleSearch, query, HandleSelect, categorys, basket, updateQuantity } = useContext(Productcontext);
@@ -46,7 +47,7 @@ function UrunKatalog() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredProducts.map((product) => {
           const productInBasket = basket.find(item => item.id === product.id);
 

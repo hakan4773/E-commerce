@@ -3,6 +3,7 @@ import {ProductReducer,initialState} from "../Api/Reducer";
 
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
+  
   const AddFavorite = (product) => {
     if (state.favorites.find((item) => item.id === product.id)) {
       //ürün favorilerde varmı varsa sil

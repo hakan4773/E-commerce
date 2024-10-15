@@ -6,7 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 function Footer() {
   return (
-<footer className=" w-full h-[150px] bg-pink-800">
+<footer className=" w-screen bg-sky-900 ">
     <h3 className=' text-center font-bold p-4'>Sosyal Medya Hesaplarınız ile paylaşın</h3>
   <div className="flex   justify-center items-center space-x-6">
  

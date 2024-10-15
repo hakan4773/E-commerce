@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 function Home() {
 
   return (
-    <div className='flex flex-col items-center justify-center text-center'>{/* w-full h-full flex items-center justify-center text-center */}
+    <div className='w-screen  flex flex-col items-center justify-center text-center '>{/* w-full h-full flex items-center justify-center text-center */}
       
       <div className="relative inline-block p-10 s">
       <img
